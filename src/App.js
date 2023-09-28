@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Card from './components/UI/Card';
 import ExpenseItem from './components/Expenses/ExpenseItem';
 
 function App() {
@@ -29,12 +30,14 @@ function App() {
   for (let i = 0; i < expense.length; i++) {
     const expenses = expense[i];
     array.push(
-      <ExpenseItem
-        key={i}
+      <Card className='expenses'>
+        <ExpenseItem
+        key={i} 
         title={expenses.title} 
         amount={expenses.amount}
         date={expenses.date}
       />
+      </Card>
     );
   }
 
