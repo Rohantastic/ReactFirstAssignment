@@ -3,10 +3,45 @@ import './App.css';
 import ExpenseItem from './components/ExpenseItem';
 
 function App() {
+
+  const expense = [{
+    title: "Car insurance",
+    amount: "124.34",
+    date: new Date(2021, 8, 28)
+  }, {
+    title: "Home insurance",
+    amount: "954.65",
+    date: new Date(2021, 3, 24)
+  },
+  {
+    title: "Health insurance",
+    amount: "924.23",
+    date: new Date(2021, 1, 23)
+  },
+  {
+    title: "Life insurance",
+    amount: "2942.89",
+    date: new Date(2021, 7, 12)
+  }];
+
+  const array = [];
+
+  for (let i = 0; i < expense.length; i++) {
+    const expenses = expense[i];
+    array.push(
+      <ExpenseItem
+        key={i}
+        title={expenses.title} 
+        amount={expenses.amount}
+        date={expenses.date}
+      />
+    );
+  }
+
   return (
     <>
-    <h1>Lets Get Started</h1>
-    <ExpenseItem/>
+      <h1>Expense Tracker</h1>
+      {array}
     </>
   );
 }
